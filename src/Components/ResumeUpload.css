@@ -1,0 +1,211 @@
+/* === Resume Wrapper === */
+.resume-wrapper {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #cce9ff, #e6f4ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* === Resume Card === */
+.resume-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  padding: 30px 25px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* === Title and Subtitle === */
+.resume-title,
+.resume-subtitle {
+  caret-color: transparent;
+  user-select: none;
+  pointer-events: none;
+}
+
+.resume-title {
+  color: #1c5fc9;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.resume-subtitle {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* === Role Selection === */
+.resume-role {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.resume-role label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
+  display: block;
+  caret-color: transparent;
+  user-select: none;
+  pointer-events: none;
+}
+
+.resume-role-select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.resume-role-select:focus {
+  border-color: #1c5fc9;
+}
+
+/* === Drag & Drop Area === */
+.resume-dropzone {
+  border: 2px dashed #a5c7f0;
+  background: #f7fbff;
+  padding: 35px 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.resume-dropzone:hover {
+  background: #e8f4ff;
+}
+
+.upload-icon {
+  font-size: 36px;
+  margin-bottom: 8px;
+  caret-color: transparent;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* === Select File Button === */
+.resume-select-button {
+  background-color: #1c5fc9;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  caret-color: transparent;
+  user-select: none;
+  outline: none;
+  border: none;
+}
+
+.resume-select-button:hover {
+  background-color: #154aaf;
+}
+
+/* === File Name === */
+.resume-file-name {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #222;
+  font-weight: 500;
+  caret-color: transparent;
+  user-select: none;
+}
+
+/* === Notes === */
+.resume-file-info,
+.resume-note {
+  font-size: 12px;
+  color: #666;
+  margin-top: 10px;
+  caret-color: transparent;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* === Start Screening Button === */
+.resume-start-button {
+  background-color: #64a1ff;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  caret-color: transparent;
+  user-select: none;
+}
+
+.resume-start-button:hover {
+  background-color: #3e8dfc;
+}
+
+/* === Message Toast === */
+.resume-toast {
+  margin-top: 15px;
+  background-color: #ffe9e9;
+  color: #b30000;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* === Fade In Animation === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Responsive (Mobile) === */
+@media (max-width: 768px) {
+  .resume-card {
+    padding: 25px 20px;
+    max-width: 95%;
+  }
+
+  .resume-title {
+    font-size: 20px;
+  }
+
+  .resume-subtitle {
+    font-size: 15px;
+  }
+}
+.upload-icon {
+  font-size: 40px;
+  color: #1c5fc9;
+  margin-bottom: 10px;
+  caret-color: transparent;
+  user-select: none;
+  pointer-events: none;
+}

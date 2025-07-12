@@ -1,0 +1,62 @@
+.result-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #d2e9ff, #f4faff);
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+}
+
+.result-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.result-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #1a2e50;
+}
+
+.result-field {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #333;
+}
+
+.result-field p {
+  margin: 6px 0 0;
+  line-height: 1.4;
+}
+
+.score {
+  font-weight: bold;
+}
+
+.score.green {
+  color: #28a745;
+}
+
+.score.orange {
+  color: #ff9800;
+}
+
+.score.red {
+  color: #f44336;
+}
+
+@media (max-width: 768px) {
+  .result-card {
+    margin: 0 10px;
+    padding: 20px;
+  }
+}
