@@ -1,31 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import './Result.css';
 
 const Result = () => {
-  const dummyCategory = 'Web Developer';
-  const dummyScore = 82;
-  const dummySummary = 'Strong in React and JavaScript. Basic understanding of backend. Resume is well-structured.';
-  const dummyRecommendation = 'Consider for technical interview.';
+  const location = useLocation();
+  const { category, score, summary, recommendation } = location.state || {};
 
   const [animatedScore, setAnimatedScore] = useState(0);
 
   useEffect(() => {
     let start = 0;
     const interval = setInterval(() => {
-      start += 1;
-      if (start <= dummyScore) {
+      if (start <= score) {
         setAnimatedScore(start);
+        start += 1;
       } else {
         clearInterval(interval);
       }
     }, 15);
     return () => clearInterval(interval);
-  }, [dummyScore]);
+  }, [score]);
 
-  const getScoreColor = (value) => {
-    if (value >= 80) return 'green';
-    if (value >= 60) return 'orange';
+  const getScoreColor = (val) => {
+    if (val >= 80) return 'green';
+    if (val >= 60) return 'orange';
     return 'red';
   };
 
@@ -41,24 +40,24 @@ const Result = () => {
         <h2 className="result-title">🎯 Resume Screening Result</h2>
 
         <div className="result-field">
-          <strong>📂 Resume Category:</strong> {dummyCategory}
+          <strong>📂 Resume Category:</strong> {category}
         </div>
 
         <div className="result-field">
           <strong>✅ Match Score:</strong>{' '}
-          <span className={`score ${getScoreColor(dummyScore)}`}>
+          <span className={`score ${getScoreColor(score)}`}>
             {animatedScore}%
           </span>
         </div>
 
         <div className="result-field">
           <strong>📝 Summary:</strong>
-          <p>{dummySummary}</p>
+          <p>{summary}</p>
         </div>
 
         <div className="result-field">
           <strong>🔍 Suggested Action:</strong>
-          <p>{dummyRecommendation}</p>
+          <p>{recommendation}</p>
         </div>
       </motion.div>
     </div>

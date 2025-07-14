@@ -77,3 +77,9 @@
     font-size: 0.95rem;
   }
 }
+/* ==== Prevent blinking caret and selection on all text in result card ==== */
+.result-card, 
+.result-card * {
+  user-select: none;       /* Prevent text selection */
+  caret-color: transparent; /* Hide blinking text cursor */
+}
