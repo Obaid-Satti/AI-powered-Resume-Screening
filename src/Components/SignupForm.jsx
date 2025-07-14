@@ -1,4 +1,7 @@
+// SignupForm.jsx
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './SignupForm.css';
 import Logo from '../assets/Logo.jpg';
 
@@ -6,28 +9,29 @@ const SignupForm = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    confirmPassword: '',
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
 
-    alert("Signup successful!");
-    console.log("Form Data:", formData);
+    try {
+      const res = await axios.post('http://localhost:5000/api/auth/signup', formData);
+      alert('Signup successful!');
+      navigate('/upload');
+    } catch (err) {
+      alert('Signup failed!');
+      console.error(err.response?.data || err.message);
+    }
   };
 
   return (
     <div className="signup-wrapper">
       <div className="signup-container">
-        {/* Left Side: About Section (Hidden on Mobile) */}
         <div className="signup-left">
           <h1>AI Resume Screening</h1>
           <p>
@@ -36,7 +40,6 @@ const SignupForm = () => {
           </p>
         </div>
 
-        {/* Right Side: Signup Form */}
         <div className="signup-right">
           <div className="signup-card">
             <div className="card-header text-center">
@@ -54,7 +57,6 @@ const SignupForm = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-               
                   required
                 />
               </div>
@@ -71,15 +73,13 @@ const SignupForm = () => {
                 />
               </div>
 
-              
-
               <button type="submit" className="btn btn-primary w-100">
                 Sign Up
               </button>
             </form>
 
             <p className="mt-3 text-center text-muted">
-              Already have an account? <a href="#">Login here</a>
+              Already have an account? <a href="/login">Login here</a>
             </p>
           </div>
         </div>

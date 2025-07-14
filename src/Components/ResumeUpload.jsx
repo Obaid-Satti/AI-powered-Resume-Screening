@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import './ResumeUpload.css';
-import { FaUpload } from 'react-icons/fa';
 import { FaCloudUploadAlt } from 'react-icons/fa';
-
 
 const ResumeUpload = () => {
   const [file, setFile] = useState(null);
@@ -31,7 +29,6 @@ const ResumeUpload = () => {
       return;
     }
 
-    // Replace with actual upload logic
     alert(`Uploading resume for ${role}:\n${file.name}`);
     console.log({ file, role, jobDescription });
   };
@@ -58,7 +55,7 @@ const ResumeUpload = () => {
           </select>
         </div>
 
-        {/* Job Description Input */}
+        {/* Job Description */}
         <div className="resume-role">
           <label>Job Description</label>
           <textarea
@@ -76,8 +73,7 @@ const ResumeUpload = () => {
           onDragOver={handleDragOver}
           onDrop={handleDrop}
         >
-          <div className="upload-icon"><FaCloudUploadAlt /></div>
-
+          <div className="upload-icon"><FaCloudUploadAlt size={36} /></div>
           <p>Drag and drop your resume here</p>
         </div>
 
@@ -103,7 +99,7 @@ const ResumeUpload = () => {
 
         {showToast && (
           <div className="resume-toast">
-            Please select a role, enter job description, and upload a file.
+            ⚠️ Please select a role, enter a job description, and upload a file.
           </div>
         )}
       </div>

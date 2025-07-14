@@ -1,4 +1,9 @@
+
+
+
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './SignupForm.css'; 
 import Logo from '../assets/Logo.jpg';
 
@@ -7,21 +12,28 @@ const LoginForm = () => {
     email: '',
     password: '',
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Login successful!");
-    console.log("Login Data:", loginData);
+
+    try {
+      const res = await axios.post('http://localhost:5000/api/auth/login', loginData);
+      alert('Login successful!');
+      navigate('/upload');
+    } catch (err) {
+      alert('Login failed!');
+      console.error(err.response?.data || err.message);
+    }
   };
 
   return (
     <div className="signup-wrapper">
       <div className="signup-container">
-        {/* Left Side (About Section) — Hidden on Mobile */}
         <div className="signup-left">
           <h1>Welcome Back!</h1>
           <p>
@@ -30,7 +42,6 @@ const LoginForm = () => {
           </p>
         </div>
 
-        {/* Right Side (Login Form) */}
         <div className="signup-right">
           <div className="signup-card">
             <div className="card-header text-center">
@@ -48,7 +59,6 @@ const LoginForm = () => {
                   name="email"
                   value={loginData.email}
                   onChange={handleChange}
-                  
                   required
                 />
               </div>
@@ -71,7 +81,7 @@ const LoginForm = () => {
             </form>
 
             <p className="mt-3 text-center text-muted">
-              Don't have an account? <a href="#">Sign up</a>
+              Don't have an account? <a href="/signup">Sign up</a>
             </p>
           </div>
         </div>

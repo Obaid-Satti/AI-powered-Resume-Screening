@@ -1,45 +1,53 @@
+/* ==== Wrapper for full screen ==== */
 .result-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #d2e9ff, #f4faff);
-  font-family: 'Segoe UI', sans-serif;
+  width: 100vw;
+  height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #e0f0ff, #f3f9ff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
 }
 
+/* ==== Main Result Card ==== */
 .result-card {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   border-radius: 16px;
-  padding: 30px;
+  padding: 30px 40px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+  max-width: 550px;
   width: 100%;
-  max-width: 500px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* ==== Title ==== */
 .result-title {
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 1.9rem;
+  margin-bottom: 25px;
+  color: #1a4a7c;
   text-align: center;
-  color: #1a2e50;
 }
 
+/* ==== Each Field ==== */
 .result-field {
-  margin-bottom: 15px;
-  font-size: 16px;
+  margin-bottom: 20px;
+  font-size: 1rem;
   color: #333;
 }
 
 .result-field p {
-  margin: 6px 0 0;
-  line-height: 1.4;
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+  color: #555;
 }
 
+/* ==== Score Styling ==== */
 .score {
   font-weight: bold;
+  font-size: 1.3rem;
 }
 
 .score.green {
@@ -47,16 +55,25 @@
 }
 
 .score.orange {
-  color: #ff9800;
+  color: #f0ad4e;
 }
 
 .score.red {
-  color: #f44336;
+  color: #dc3545;
 }
 
+/* ==== Responsive ==== */
 @media (max-width: 768px) {
   .result-card {
-    margin: 0 10px;
-    padding: 20px;
+    padding: 25px 20px;
+    max-width: 100%;
+  }
+
+  .result-title {
+    font-size: 1.6rem;
+  }
+
+  .result-field {
+    font-size: 0.95rem;
   }
 }
